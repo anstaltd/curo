@@ -1,0 +1,19 @@
+{
+    "name": "ansta/curo",
+    "description": "A Method of sending a receiving requests from Curo payments",
+    "authors": [
+        {
+            "name": "Aaryanna Simonelli",
+            "email": "ashleighsimonelli@gmail.com"
+        }
+    ],
+    "autoload" : {
+        "psr-4" : {
+            "Ansta\\Curo\\" : "src/"
+        }
+    },
+    "require" : {
+        "php" : ">=5.6.30",
+        "guzzlehttp/guzzle" : "6.2.3"
+    }
+}
