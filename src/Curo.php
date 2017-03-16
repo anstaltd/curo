@@ -16,8 +16,10 @@ use Ansta\Curo\Exceptions\CuroException;
 use Ansta\Curo\Exceptions\CuroCaptureFailedException;
 use Psr\Http\Message\ResponseInterface;
 
-//TODO Add get payment methods
-
+/**
+ * Class Curo
+ * @package Ansta\Curo
+ */
 class Curo
 {
 

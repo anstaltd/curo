@@ -2,8 +2,15 @@
 
 namespace Ansta\Curo;
 
+/**
+ * Class Currency
+ * @package Ansta\Curo
+ */
 class Currency {
 
+    /**
+     * Constants for Currency types
+     */
     const GBP = 1;
     const EUR = 2;
     const USD = 3;

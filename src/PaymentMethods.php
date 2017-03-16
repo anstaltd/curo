@@ -2,8 +2,15 @@
 
 namespace Ansta\Curo;
 
+/**
+ * Class PaymentMethods
+ * @package Ansta\Curo
+ */
 class PaymentMethods {
 
+    /**
+     * Available payment method endpoints
+     */
     const AFTERPAY = 1;
     const BANCONTACT = 2;
     const BANK_TRANSFER = 3;

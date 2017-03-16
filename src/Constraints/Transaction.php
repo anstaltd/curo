@@ -2,8 +2,16 @@
 
 namespace Ansta\Curo\Constraints;
 
+/**
+ * Class Transaction
+ * @package Ansta\Curo\Constraints
+ */
 Class Transaction extends Constraint
 {
+    /**
+     * Transaction constructor.
+     * @param array $data
+     */
     public function __construct(Array $data = [])
     {
 
@@ -11,6 +19,9 @@ Class Transaction extends Constraint
 
     }
 
+    /**
+     * @return array
+     */
     public function getCaptureArray()
     {
 
@@ -20,7 +31,12 @@ Class Transaction extends Constraint
 
     }
 
-    public function getRedirect_url($value) {
+    /**
+     * @param $value
+     * @return null
+     */
+    public function getRedirect_url($value)
+    {
         return isset($this->data['url']) ? $this->data['url'] : null;
     }
 }

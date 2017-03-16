@@ -2,6 +2,10 @@
 
 namespace Ansta\Curo;
 
+/**
+ * Class StatusCode
+ * @package Ansta\Curo
+ */
 class StatusCode {
 
     const PROGRESS = 0;

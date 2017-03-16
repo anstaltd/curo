@@ -2,11 +2,22 @@
 
 namespace Ansta\Curo\Constraints;
 
+/**
+ * Class Constraint
+ * @package Ansta\Curo\Constraints
+ */
 Abstract Class Constraint
 {
 
+    /**
+     * @var array
+     */
     public $data = [];
 
+    /**
+     * Constraint constructor.
+     * @param array $data
+     */
     public function __construct(Array $data = [])
     {
 
@@ -14,6 +25,11 @@ Abstract Class Constraint
 
     }
 
+    /**
+     * @param $param
+     * @param $value
+     * @return mixed
+     */
     public function __set($param, $value)
     {
 
@@ -21,6 +37,10 @@ Abstract Class Constraint
 
     }
 
+    /**
+     * @param $param
+     * @return mixed|null
+     */
     public function __get($param)
     {
 
@@ -32,6 +52,9 @@ Abstract Class Constraint
 
     }
 
+    /**
+     * @return array
+     */
     public function toArray()
     {
         return $this->data;
