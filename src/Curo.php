@@ -149,7 +149,7 @@ class Curo
         Order $order,
         Items $items,
         Customer $customer,
-        $method = PaymentMethods::CREDIT_CARD,
+        $method = null,
         ShippingAddress $shippingAddress = null,
         BillingAddress $billingAddress = null
     ) {
@@ -181,7 +181,7 @@ class Curo
 
         $response = $this->guzzle->request(
             'POST',
-            $this->route.'payment/'.PaymentMethods::$extension[$method],
+            $this->route.'payment/'.(($method !== null) ? PaymentMethods::$extension[$method] : ""),
             [
                 'auth' => $this->getAuth(),
                 'json' => $this->data,
