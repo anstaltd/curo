@@ -16,6 +16,8 @@ use Ansta\Curo\Exceptions\CuroException;
 use Ansta\Curo\Exceptions\CuroCaptureFailedException;
 use Psr\Http\Message\ResponseInterface;
 
+//TODO Add get payment methods
+
 class Curo
 {
 
@@ -169,7 +171,7 @@ class Curo
             $this->data['shipto_zipcode'] = $shippingAddress->postcode;
         }
 
-        if ($shippingAddress) {
+        if ($billingAddress) {
             $this->data['company'] = $billingAddress->company;
             $this->data['address'] = $billingAddress->address;
             $this->data['city'] = $billingAddress->city;
@@ -199,7 +201,7 @@ class Curo
     /**
      * @param Transaction $transaction
      */
-    public function capture(Transaction $transaction)
+    public function captureTransaction(Transaction $transaction)
     {
 
         $response = $this->guzzle->request(
