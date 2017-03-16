@@ -2,6 +2,7 @@
 
 namespace Ansta\Curo;
 
+use Ansta\Curo\Constraints\PaymentMethod;
 use GuzzleHttp\Client as Guzzle;
 
 use Ansta\Curo\Constraints\ShippingAddress;
@@ -239,11 +240,50 @@ class Curo
 
         $body = $this->getBodyFromResponse($response);
 
-        if ($response->getCode() == 200) return new Transaction($response->getBody());
+        if ($response->getStatusCode() == 200) return new Transaction($response->getBody());
 
         else throw new CuroException(isset($body['error']) && isset($body['error']['message']) ? $body['error']['message'] : 'Curo responded without an error message.');
 
     }
+
+    /**
+     * @return array
+     * @throws CuroException
+     */
+    /*public function getPaymentMethods()
+    {
+        $response = $this->guzzle->request(
+            'GET',
+            $this->route.'paymenttypes/' . $this->data['site_id'],
+            [
+                "auth" => $this->getAuth(),
+            ]
+        );
+
+        $body = $this->getBodyFromResponse($response);
+
+        if ($response->getStatusCode() == 200) {
+
+            $paymentMethods = [];
+
+            foreach($body['paymenttypes']['options'] as $paymentMethod) {
+
+                $id = array_flip(PaymentMethods::$names)[strtolower($paymentMethod['name'])];
+
+                $paymentMethods[] = $paymentMethod = new PaymentMethod([
+                    "name" => PaymentMethods::$names[$id],
+                    "id" => PaymentMethods::$names[$id],
+                ]);
+
+            }
+
+            return $paymentMethods;
+
+        }
+
+        else throw new CuroException(isset($body['error']) && isset($body['error']['message']) ? $body['error']['message'] : 'Curo responded without an error message.');
+
+    }*/
 
     /**
      * @return array
